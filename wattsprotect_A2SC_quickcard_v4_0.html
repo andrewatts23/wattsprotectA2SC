@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WattsProtect™ A²SC — The Proof Engine for AI Integrity</title>
+<meta name="theme-color" content="#05141a">
+<style>
+  :root{
+    --bg:#070e12;
+    --panel:#0c151b;
+    --panel-2:#0f1b22;
+    --text:#eaf7ff;
+    --muted:#a3c4d6;
+    --accent:#00e5ff; /* electric blue */
+    --accent-soft: rgba(0,229,255,.22);
+    --line:#12303a;
+    --shadow:0 12px 36px rgba(0,0,0,.35);
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55}
+  *{box-sizing:border-box}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:112px 16px 140px}
+
+  /* Sticky header + tagline */
+  header{position:sticky;top:0;z-index:120;
+    background:linear-gradient(180deg,rgba(7,14,18,.95),rgba(7,14,18,.75) 70%, rgba(7,14,18,0));
+    backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+  .head{display:flex;align-items:center;gap:12px;max-width:980px;margin:0 auto;padding:14px 16px}
+  .logo{width:14px;height:14px;border:2px solid var(--accent);border-radius:3px;box-shadow:0 0 16px var(--accent-soft)}
+  .title{font-weight:800;letter-spacing:.2px}
+  .subtitle{color:var(--muted);font-size:12px}
+  .tag{position:sticky;top:52px;z-index:110;margin:0 auto;display:block;max-width:980px;
+    color:#c9f4ff;background:rgba(6,18,24,.65);backdrop-filter:blur(6px);
+    padding:6px 10px;border:1px solid var(--line);border-radius:999px;
+    font-size:12px;text-align:center;}
+
+  /* Hero */
+  .hero{margin-top:12px;background:linear-gradient(180deg,#0a1820,#08141a);
+    border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:var(--shadow)}
+  .hero p{margin:0;font-size:20px}
+  .pulse{display:inline-block;padding:2px 6px;border-radius:8px;box-shadow:0 0 0 0 rgba(0,229,255,.45);animation:pulse 3s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,229,255,.45)}
+    70%{box-shadow:0 0 0 12px rgba(0,229,255,0)}
+    100%{box-shadow:0 0 0 0 rgba(0,229,255,0)}}
+
+  /* Sections */
+  .section{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:14px 0;overflow:hidden}
+  .section .hd{padding:14px 16px;font-weight:700;border-bottom:1px solid var(--line);background:var(--panel-2)}
+  .content{padding:14px 16px}
+  .pull{border-left:3px solid var(--accent);padding:12px 14px;margin:8px 0;background:#0b1820;color:#dff8ff;border-radius:0 10px 10px 0}
+
+  /* List & badges */
+  ol{margin:8px 0 0 18px}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .badge{border:1px solid var(--line);background:#0a141a;padding:6px 10px;border-radius:999px;font-size:12px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+
+  /* Use case navigator */
+  .nav{display:flex;gap:12px;overflow-x:auto;padding:10px 6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .card{flex:0 0 280px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px;scroll-snap-align:start;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+
+  /* Engineer code blocks */
+  .swipe-tip{font-size:11px;color:#88d0e8;margin:0 0 4px;text-align:right}
+  pre,code{background:#0a1419;border:1px solid var(--line);border-radius:10px;color:#d6f7ff}
+  pre{padding:10px;overflow-x:auto;white-space:pre;word-wrap:normal;-webkit-overflow-scrolling:touch;max-width:100%}
+  pre::-webkit-scrollbar{height:6px}
+  pre::-webkit-scrollbar-thumb{background:#12303a;border-radius:3px}
+
+  /* Microdemo */
+  .video-wrap{position:relative;background:#0a1418;border:1px dashed var(--line);border-radius:12px;padding:14px;text-align:center}
+  video{width:100%;border-radius:10px;display:none;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#0e1920;color:#dff8ff;border-radius:10px;padding:10px 14px;cursor:pointer}
+  .btn:hover{background:#0f2027}
+  .show video{display:block}
+
+  /* Floating CTA */
+  .cta{position:fixed;right:16px;bottom:16px;background:linear-gradient(180deg,#0f2a32,#0a1c22);border:1px solid #12323e;box-shadow:0 10px 18px rgba(0,0,0,.35);padding:12px 16px;border-radius:999px;color:#dff8ff;z-index:140}
+  .cta strong{color:var(--accent)}
+
+  /* Proof Fabric pulse highlight */
+  .pf{display:inline-block;border-radius:6px;padding:0 4px;animation:pulse 4s infinite}
+</style>
+</head>
+<body>
+<header>
+  <div class="head">
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <div class="title">WattsProtect™ A²SC — The Proof Engine for AI Integrity</div>
+      <div class="subtitle">The living chain of custody that turns every AI decision into evidence.</div>
+    </div>
+  </div>
+</header>
+
+<span class="tag">“From calibration to courtroom — every AI decision, proven.”</span>
+
+<div class="wrap">
+  <section class="hero">
+    <p><strong>When an airplane crashes, investigators look for the black box.</strong><br>
+      <strong>WattsProtect™ A²SC</strong> is that — but <span class="pulse">alive</span>.<br>
+      It captures, verifies, and preserves every AI or machine action as verifiable truth — transforming black boxes into a <em>proof engine</em>.</p>
+  </section>
+
+  <section class="section">
+    <div class="hd">🔹 The A²SC Chain of Custody</div>
+    <div class="content">
+      <ol>
+        <li><strong>Trigger Detected</strong> — Events are captured in real time (calibration, model decision, policy change).</li>
+        <li><strong>Policy Gate</strong> — Rules‑as‑code (OPA/Rego) verify compliance before execution.</li>
+        <li><strong>Attestation Layer</strong> — Hardware and environment sign their integrity (TPM/TEE).</li>
+        <li><strong>Hash‑Linked Logs</strong> — Each event connects cryptographically to the last.</li>
+        <li><strong>Evidence Bundle</strong> — Data, policy, approvals, and signatures sealed as one record.</li>
+        <li><strong>Immutable Vault</strong> — Write‑once storage ensures forensic permanence.</li>
+      </ol>
+      <div class="pull"><em>A²SC transforms uncertainty into evidence — a new covenant between intelligence and integrity.</em></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="hd">🔧 Inside the A²SC Stack</div>
+    <div class="content">
+      <p><strong>Layer 1 — Event Capture:</strong> Sensor streams and system triggers ingested in real time. <span class="muted">🔹 First capture point of the <span class="pf">Proof Fabric</span>.</span></p>
+      <p><strong>Layer 2 — Policy‑as‑Code:</strong> OPA/Rego enforces training, drift limits, and SoD at execution time. <span class="muted">🔹 Adds the first digital signature.</span></p>
+      <p><strong>Layer 3 — Attestation:</strong> TPM/TEE verifies device & environment integrity; issues permit tokens. <span class="muted">🔹 Extends trust with hardware‑backed proof.</span></p>
+      <p><strong>Layer 4 — Hash‑Chained Bundles:</strong> Events, policies, and signatures sealed into a linked evidence bundle. <span class="muted">🔹 Chain integrity: no silent edits.</span></p>
+      <p><strong>Layer 5 — Immutable Vault:</strong> Write‑once encrypted retention; regulator‑ready retrieval. <span class="muted">🔹 Forensic permanence & exchange.</span></p>
+      <div class="pull"><em>Each layer adds a signature; together they form the <span class="pf">WattsProtect™ Proof Fabric</span>.</em></div>
+      <div class="badges">
+        <span class="badge">✅ Used in regulated environments</span>
+        <span class="badge">🔐 TPM/TEE attested</span>
+        <span class="badge">🧾 Audit‑ready by design</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="hd">🧭 Use‑Case Navigator</div>
+    <div class="content">
+      <div class="nav">
+        <div class="card"><strong>🔮 Predictive Calibration</strong><br>
+          <span class="muted">Forecast drift, verify outcomes, and record both predicted & actual states — anticipatory compliance.</span></div>
+        <div class="card"><strong>🏭 Manufacturing</strong><br>
+          <span class="muted">Line‑level checks attested in real time; reduced scrap and downtime; instant audit artifacts.</span></div>
+        <div class="card"><strong>🧪 Labs & Pharma</strong><br>
+          <span class="muted">ISO / 21 CFR Part 11 traceability from live policy enforcement and signed evidence bundles.</span></div>
+        <div class="card"><strong>🧠 AI Governance</strong><br>
+          <span class="muted">Lineage for every inference; policy outcomes and attested runtime state, unified as evidence.</span></div>
+        <div class="card"><strong>🛡️ Critical Infrastructure</strong><br>
+          <span class="muted">Attested control changes only; hash‑chained telemetry; immutable vaults across sites.</span></div>
+        <div class="card"><strong>🏥 Healthcare Devices</strong><br>
+          <span class="muted">Clinical adjustments require verified training and MFA approvals; audit evidence on demand.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="hd">🔧 For Engineers — Show the Proof</div>
+    <div class="content">
+      <div class="muted">policy.yaml</div>
+      <div class="swipe-tip">⇠ Swipe to view full code ⇢</div>
+      <pre><code># CAL-APPROVAL-001
+version: 1
+policy_id: CAL-APPROVAL-001
+description: "Calibration change requires training, SoD, and drift within tolerance."
+controls:
+  - id: TRAINING_VALID
+    require: actor.training.calibration == true
+  - id: SOD_ENFORCED
+    require: actor.id != request.requested_by
+  - id: DRIFT_THRESHOLD
+    require: metrics.drift_ppm <= params.max_ppm
+params:
+  max_ppm: 25
+approvals:
+  - role: "Supervisor"
+    mfa: true</code></pre>
+
+      <div class="muted">gate.rego (predictive extension)</div>
+      <div class="swipe-tip">⇠ Swipe to view full code ⇢</div>
+      <pre><code>package gates.calibration
+default allow = false
+deny[msg] {
+  future_drift := input.simulation.drift_ppm
+  future_drift > input.params.max_ppm
+  msg := sprintf("predicted drift above threshold: %v > %v", [future_drift, input.params.max_ppm])
+}
+allow { count(deny) == 0 }</code></pre>
+
+      <div class="muted">evidence_bundle.json (excerpt)</div>
+      <div class="swipe-tip">⇠ Swipe to view full code ⇢</div>
+      <pre><code>{
+  "bundle_id": "EVD-2025-0915-001",
+  "scope": {"system": "WattsProtect", "policy_id": "CAL-APPROVAL-001"},
+  "forecast": {"predicted_drift_ppm": 18, "confidence": 0.97, "simulated_outcome": "allow", "ts": "2025-10-15T22:47:00Z"},
+  "roots": {"event_hash": "0xabc...", "log_merkle_root": "0xdef..."}
+}</code></pre>
+
+      <div class="muted">Evidence API (OpenAPI excerpt)</div>
+      <div class="swipe-tip">⇠ Swipe to view full code ⇢</div>
+      <pre><code>openapi: 3.0.3
+info: { title: WattsProtect Evidence API, version: "1.0" }
+paths:
+  /events:        { post: { summary: Ingest signed event } }
+  /attestations:  { post: { summary: Submit TPM/TEE quote (JWT permit) } }
+  /evidence/{id}: { get:  { summary: Fetch evidence packet by id } }</code></pre>
+
+      <div class="pull"><em>“Each layer adds a digital signature. Together, they form the <span class="pf">WattsProtect™ Proof Fabric</span>.”</em></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="hd">🎥 Watch the Chain in 20 Seconds</div>
+    <div class="content">
+      <div class="video-wrap" id="demo">
+        <button class="btn" onclick="toggleDemo()">▶︎ Play microdemo</button>
+        <video id="vid" muted loop playsinline>
+          <source src="microdemo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="muted" style="margin-top:6px">Sequence: calibration → policy gate → hash chain → vault seal.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="hd">📩 Connect</div>
+    <div class="content">
+      <p><strong>Name</strong><br><strong>Email</strong><br><strong>Role:</strong> Engineering / Compliance / Executive / Product / Other<br>
+      <strong>What caught your eye?</strong><br><span class="muted">Submitting opens your email client with a pre‑filled message.</span></p>
+      <p><strong>👉 Request the Deep Dive (PDF + 15‑min Call)</strong></p>
+      <p>☎︎ 732‑853‑4977<br>✉︎ <a href="mailto:andrewatts23@gmail.com">andrewatts23@gmail.com</a></p>
+      <p class="muted">© 2025 Andre Jason Watts — WattsProtect™ Dynasty Vault. NDA and access limitations apply.</p>
+    </div>
+  </section>
+</div>
+
+<a class="cta" href="mailto:andrewatts23@gmail.com?subject=Connect%20%F0%9F%94%8A%20WattsProtect%20A2SC"><strong>Connect with Me</strong> — Email</a>
+
+<script>
+  function toggleDemo(){
+    var w = document.getElementById('demo');
+    w.classList.toggle('show');
+    const v = document.getElementById('vid');
+    if(w.classList.contains('show')){ v.play().catch(()=>{}); } else { v.pause(); }
+  }
+</script>
+</body>
+</html>
